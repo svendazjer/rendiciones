@@ -28,9 +28,27 @@
 	<div data-role="header">
 		<h1>Nueva Rendición</h1>
 	</div>
-	<div data-role="content">	
-		Aquí va la nueva rendición
-	</div>
+	<div data-role="content">
+	  <div data-role="fieldcontain">
+	    <label for="fecha">Fecha:</label>
+	    <input type="text" name="fecha" id="fecha" value=""/>
+	    <label for="descripcion">Descripción:</label>
+	    <input type="text" name="descripcion" id="descripcion" value=""/>      
+      </div>
+      <div data-role="fieldcontain">
+        <label for="items" class="select">Item:</label>
+        <select name="items" id="items">
+          <option value="option1">Traslados</option>
+          <option value="option2">Combustible</option>
+          <option value="option3">Materiales de oficina</option>
+          <option value="option3">Consumo</option>
+          <option value="option3">Alojamientos</option>
+          <option value="option3">Gastos varios</option>
+          <option value="option3">Servicios terceros</option>
+        </select>
+      </div>
+    
+    <a href="#" data-role="button">Guardar</a></div>
 	<div data-role="footer">
 		<h4>Pie de página</h4>
 	</div>
@@ -42,18 +60,6 @@
 	</div>
 	<div data-role="content">	
 		Aquí va la lista de rendiciones
-	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
-</div>
-
-<div data-role="page" id="page4">
-	<div data-role="header">
-		<h1>Página cuatro</h1>
-	</div>
-	<div data-role="content">	
-		Contenido		
 	</div>
 	<div data-role="footer">
 		<h4>Pie de página</h4>
