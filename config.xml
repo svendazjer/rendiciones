@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.raxtel.rendiciones"
+    version   = "1.0.0">
+
+<name>Raxtel Rendiciones</name>
+
+<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+
+<!--<preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+
+<icon src="logo_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
+<gap:splash src="splash_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
+
+<description>
+Aplicación para gestionar rendiciones de cuenta.
+</description>
+
+<author href="http://raxtel.com" email="ftoloza@raxtel.com">
+Domy - Raxtel
+</author>
+
+</widget>
