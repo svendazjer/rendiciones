@@ -7,120 +7,7 @@
 <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 <script src="cordova.js" type="text/javascript"></script>
-<!--
-<link rel="stylesheet" href="jquery-mobile/jquery.ui.datepicker.mobile.css" /> 
-<script src="jquery-mobile/jQuery.ui.datepicker.js"></script>
-<script src="jquery-mobile/jquery.ui.datepicker.mobile.js"></script>
--->
-<script>
-
-$(document).ready(function() {
-/*	$("#date").focusin(function(e) {
-		//reset type=date inputs to text
-		$("#date").bind( "mobileinit", function(){
-			$.mobile.page.prototype.options.degradeInputs.date = true;
-		});	        
-    });
-*/	
-	//$.mobile.changePage("#nueva_rendicion");
-	$("#guardar").click(function(e) {
-		e.preventDefault();
-		// Un mensaje de estado
-		$("#resultBlock").html("Obteniendo los datos - esperando...");
-		// Hacemos un peticion web y obtenemos la data
-		$.post("http://s2.intus.cl/raxteltss2013/test.php", {enviar:$("#guardar").val(), campo: "descripcion", valor: $("#descripcion").val()}, function(data) {
-			// Cargamos la data dentro de la etiqueta p
-			$("#resultBlock").html(data);
-		})
-	});
-});
-
-var pictureSource;   // picture source
-var destinationType; // sets the format of returned value 
-
-// Wait for Cordova to connect with the device
-//
-document.addEventListener("deviceready",onDeviceReady,false);
-
-// Cordova is ready to be used!
-//
-function onDeviceReady() {
-	pictureSource=navigator.camera.PictureSourceType;
-	destinationType=navigator.camera.DestinationType;
-}
-
-// Called when a photo is successfully retrieved
-//
-function onPhotoDataSuccess(imageData) {
-	// Uncomment to view the base64 encoded image data
-	// console.log(imageData);
-
-	// Get image handle
-	//
-	var smallImage = document.getElementById('smallImage');
-
-	// Unhide image elements
-	//
-	smallImage.style.display = 'block';
-
-	// Show the captured photo
-	// The inline CSS rules are used to resize the image
-	//
-	smallImage.src = "data:image/jpeg;base64," + imageData;
-}
-
-// Called when a photo is successfully retrieved
-//
-function onPhotoURISuccess(imageURI) {
-	// Uncomment to view the image file URI 
-	// console.log(imageURI);
-
-	// Get image handle
-	//
-	var largeImage = document.getElementById('largeImage');
-
-	// Unhide image elements
-	//
-	largeImage.style.display = 'block';
-
-	// Show the captured photo
-	// The inline CSS rules are used to resize the image
-	//
-	largeImage.src = imageURI;
-}
-
-// A button will call this function
-//
-function capturePhoto() {
-	// Take picture using device camera and retrieve image as base64-encoded string
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-		destinationType: destinationType.DATA_URL });
-}
-
-// A button will call this function
-//
-function capturePhotoEdit() {
-	// Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-		destinationType: destinationType.DATA_URL });
-}
-
-// A button will call this function
-//
-function getPhoto(source) {
-	// Retrieve image file location from specified source
-	navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
-		destinationType: destinationType.FILE_URI,
-		sourceType: source });
-}
-
-// Called if something bad happens.
-// 
-function onFail(message) {
-	alert('Failed because: ' + message);
-}
-
-</script>
+<script src="mijs.js" type="text/javascript"></script>
 </head> 
 <body> 
 
@@ -146,26 +33,14 @@ function onFail(message) {
 	  <div data-role="fieldcontain">
 	    <label for="fecha">Fecha:</label>
 		<input type="date" name="fecha" id="fecha" value=""  />	
-	    <label for="descripcion">Descripción:</label>
-	    <input type="text" name="descripcion" id="descripcion" value=""/>      
-	    <label for="foto">Foto:</label>
-	    <input type="file" name="foto" id="foto" />      
+	    <label for="saldo_anterior">Saldo anterior:</label>
+	    <input type="text" name="saldo_anterior" id="saldo_anterior" value=""/>      
+	    <label for="monto_asignado">Monto asignado:</label>
+	    <input type="text" name="monto_asignado" id="monto_asignado" value=""/>      
+	    <label for="combustible_asignado">Combustible asignado:</label>
+	    <input type="text" name="combustible_asignado" id="combustible_asignado" value=""/>      
       </div>
-      <div data-role="fieldcontain">
-        <label for="items" class="select">Item:</label>
-        <select name="items" id="items">
-          <option value="option1">Traslados</option>
-          <option value="option2">Combustible</option>
-          <option value="option3">Materiales de oficina</option>
-          <option value="option3">Consumo</option>
-          <option value="option3">Alojamientos</option>
-          <option value="option3">Gastos varios</option>
-          <option value="option3">Servicios terceros</option>
-        </select>
-      </div>
-    
-	  <input type="button" data-role="button" id="foto" value="Boleta/Factura" onclick="capturePhoto();">
-      
+
 	  <input type="button" data-role="button" id="guardar" value="Guardar">
     
       <p id="resultBlock"></p>
@@ -175,12 +50,23 @@ function onFail(message) {
 	</div>
 </div>
 
-<div data-role="page" id="lista_rendiciones">
+<div data-role="page" id="nuevo_item">
 	<div data-role="header">
-		<h1>Lista Rendiciones</h1>
+		<h1>Nuevo item</h1>
 	</div>
 	<div data-role="content">	
-		Aquí va la lista de rendiciones
+      <div data-role="fieldcontain">
+        <label for="items" class="select">Item:</label>
+        <select name="items" id="items">
+          <option value="1">Servicios terceros</option>
+          <option value="2">Traslados</option>
+          <option value="3">Combustible</option>
+          <option value="4">Materiales de oficina</option>
+          <option value="5">Consumo</option>
+          <option value="6">Alojamientos</option>
+          <option value="7">Gastos varios</option>
+        </select>
+      </div>
 	</div>
 	<div data-role="footer">
 		<h4>Pie de página</h4>
