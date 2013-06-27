@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-	alert("rules");
 	//$.mobile.changePage("#nueva_rendicion");
 	$("#guardar").click(function(e) {
 		e.preventDefault();

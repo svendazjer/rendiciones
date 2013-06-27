@@ -8,6 +8,7 @@
 
 <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+<plugin name="Capture" value="org.apache.cordova.Capture"/>
 
 <!--<preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
