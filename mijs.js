@@ -40,7 +40,7 @@ $(document).ready(function() {
 			//alert(llave+"-"+valor[0].fecha_rendicion);
 		});
 
-		$("#lista_rendiciones").html(data);
+		//$("#lista_rendiciones").html(data);
 	});
 });
 
