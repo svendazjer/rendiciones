@@ -41,7 +41,7 @@ $(document).ready(function() {
 			*/
 			$("#lista_rendiciones").append(''+
             '<tr align="left">'+
-              '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'">'+valor[0].fecha_rendicion+'</a></td>'+
+              '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
               '<td>'+valor[0].saldo_a_devolver+'</td>'+
               '<td>'+valor[0].saldo_combustible+'</td>'+
             '</tr>'+
@@ -54,7 +54,7 @@ $(document).ready(function() {
 	});
 
 	$("#itemspage").live("pageshow", function (e) {
-		alert(window.location);
+		alert(window.location+"-"+sessionStorage.id);
 	});
 
 });
