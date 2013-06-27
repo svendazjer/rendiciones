@@ -1,4 +1,6 @@
 
+var urlrendiciones="http://192.168.1.124/rendicionesweb/";
+
 $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
@@ -7,7 +9,7 @@ $(document).ready(function() {
 		// Un mensaje de estado
 		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		$.post("http://192.168.1.124/rendicionesweb/guarda_rendicion.php", {
+		$.post(urlrendiciones+"guarda_rendicion.php", {
 				enviar:$("#guardar").val(), 
 				fecha_rendicion: $("#fecha_rendicion").val(), 
 				saldo_anterior: $("#saldo_anterior").val(),
@@ -23,7 +25,13 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$.get("http://192.168.1.124/rendicionesweb/lista_rendiciones.php", function(data){
+	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
+		var datos=$.parseJSON(data);
+
+		$.each(datos, function(llave, valor){
+			alert(llave+"-"+valor[0].fecha_rendicion);
+		});
+
 		$("#lista_rendiciones").html(data);
 	});
 });
