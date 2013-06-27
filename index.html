@@ -31,18 +31,18 @@
 	</div>
 	<div data-role="content">
 	  <div data-role="fieldcontain">
+      <form method="POST" name="nueva_rendicion" id="nueva_rendicion">
 	    <label for="fecha_rendicion">Fecha:</label>
-		<input type="date" name="fecha_rendicion" id="fecha_rendicion" value=""  />	
+		<input type="date" name="fecha_rendicion" id="fecha_rendicion" value="" required />	
 	    <label for="saldo_anterior">Saldo anterior:</label>
-	    <input type="number" name="saldo_anterior" id="saldo_anterior" value=""/>      
+	    <input type="number" name="saldo_anterior" id="saldo_anterior" value="" requited />      
 	    <label for="monto_asignado">Monto asignado:</label>
-	    <input type="number" name="monto_asignado" id="monto_asignado" value=""/>      
+	    <input type="number" name="monto_asignado" id="monto_asignado" value="" required />      
 	    <label for="combustible_asignado">Combustible asignado:</label>
-	    <input type="number" name="combustible_asignado" id="combustible_asignado" value=""/>      
-      </div>
-
-	  <input type="button" data-role="button" id="guardar" value="Guardar">
-    
+	    <input type="number" name="combustible_asignado" id="combustible_asignado" value="" required />      
+		<input type="submit" data-role="button" id="guardar" value="Guardar">
+      </form>
+      </div>    
       <p id="resultBlock"></p>
     </div>
 	<div data-role="footer">

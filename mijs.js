@@ -1,7 +1,8 @@
 
 $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
-	$("#guardar").click(function(e) {
+	//$("#guardar").click(function(e) {
+	$("#nueva_rendicion").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
 		$("#resultBlock").html("Guardando...");
@@ -16,7 +17,9 @@ $(document).ready(function() {
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock").html(data);
-		})
+		});
+		
+		return false;
 	});
 });
 
