@@ -29,14 +29,14 @@ $(document).ready(function() {
 		var datos=$.parseJSON(data);
 
 		$.each(datos, function(llave, valor){
-			$("#lista_rendiciones").append(""+
-            "<div data-role='collapsible' data-collapsed='true'>"+
-              "<h3>"+valor[0].fecha_rendicion+"</h3>"+
-              "<p>"+llave+"</p>"+
-              "<p>"+valor[0].saldo_anterior+"</p>"+
-              "<p>"+valor[0].monto_asignado+"</p>"+
-            "</div>"+
-			"");
+			$("#lista_rendiciones").append(''+
+            '<div data-role="collapsible" data-collapsed="true">'+
+              '<h3>'+valor[0].fecha_rendicion+'</h3>'+
+              '<p>'+llave+'</p>'+
+              '<p>'+valor[0].saldo_anterior+'</p>'+
+              '<p>'+valor[0].monto_asignado+'</p>'+
+            '</div>'+
+			'');
 			//alert(llave+"-"+valor[0].fecha_rendicion);
 		});
 
