@@ -41,7 +41,8 @@ $(document).ready(function() {
 			*/
 			$("#lista_rendiciones").append(''+
             '<tr align="left">'+
-              '<td><a href="#items?rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+              //'<td><a href="#items?rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+              '<td><input type="date" name="fecha3" id="fecha3"></td>'+
               '<td>'+valor[0].saldo_a_devolver+'</td>'+
               '<td>'+valor[0].saldo_combustible+'</td>'+
             '</tr>'+
