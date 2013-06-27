@@ -4,11 +4,18 @@ $(document).ready(function() {
 	$("#guardar").click(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
-		$("#resultBlock").html("Obteniendo los datos - esperando...");
+		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		$.post("http://s2.intus.cl/raxteltss2013/test.php", {enviar:$("#guardar").val(), campo: "descripcion", valor: $("#descripcion").val()}, function(data) {
-			// Cargamos la data dentro de la etiqueta p
-			$("#resultBlock").html(data);
+		$.post("http://192.168.1.124/rendicionesweb/guarda_rendicion.php", {
+				enviar:$("#guardar").val(), 
+				fecha_rendicion: $("#fecha_rendicion").val(), 
+				saldo_anterior: $("#saldo_anterior").val(),
+				monto_asignado: $("#monto_asignado").val(),
+				combustible_asignado: $("#combustible_asignado").val()
+			}, 
+			function(data) {
+				// Cargamos la data dentro de la etiqueta p
+				$("#resultBlock").html(data);
 		})
 	});
 });
