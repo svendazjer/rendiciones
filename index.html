@@ -31,28 +31,6 @@ $(document).ready(function() {
 	<div data-role="content">	
 		<ul data-role="listview">
 			<li><a href="#nueva_rendicion">Nueva Rendición</a></li>
-            <li>
-            	<table border="1">
-                  <tr>
-                    <td>Rendición</td>
-                    <td>Fecha</td>
-                    <td>Saldo anterior</td>
-                    <td>Saldo actual</td>
-                    <td>Saldo combustible</td>
-                    <td>Acciones</td>
-                  </tr>
-                  <tr>
-                    <td>Rendición 15-06</td>
-                    <td>15-06-2013</td>
-                    <td>-$16.642</td>
-                    <td>-$37.962</td>
-                    <td>$166.524</td>
-                    <td>
-                    	<a href="#nueva_rendicion"><img align="right" src="excel.gif" width="22" height="22"></a>
-                    </td>
-                  </tr>
-                </table>
-            </li>
 		</ul>		
 	</div>
 	<div data-role="footer">
@@ -70,6 +48,8 @@ $(document).ready(function() {
 	    <input type="text" name="fecha" id="fecha" value=""/>
 	    <label for="descripcion">Descripción:</label>
 	    <input type="text" name="descripcion" id="descripcion" value=""/>      
+	    <label for="foto">Foto:</label>
+	    <input type="file" name="foto" id="foto" />      
       </div>
       <div data-role="fieldcontain">
         <label for="items" class="select">Item:</label>
