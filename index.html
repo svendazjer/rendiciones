@@ -13,12 +13,14 @@
 <script src="jquery-mobile/jquery.ui.datepicker.mobile.js"></script>
 
 <script>
-//reset type=date inputs to text
-$( document ).bind( "mobileinit", function(){
-	$.mobile.page.prototype.options.degradeInputs.date = true;
-});	
 
 $(document).ready(function() {
+	$("#fecha2").focusin(function(e) {
+		//reset type=date inputs to text
+		$( document ).bind( "mobileinit", function(){
+			$.mobile.page.prototype.options.degradeInputs.date = true;
+		});	        
+    });
 	//$.mobile.changePage("#nueva_rendicion");
 	$("#guardar").click(function(e) {
 		e.preventDefault();
