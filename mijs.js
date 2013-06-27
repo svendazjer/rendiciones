@@ -53,8 +53,8 @@ $(document).ready(function() {
 		alert("aca ando en otro lado");
 	});
 
-	$("#itemspage").live("click", function (e) {
-		alert("aca ando en la pagina");
+	$("#itemspage").live("pageshow", function (e) {
+		alert(window.location);
 	});
 
 });
