@@ -46,11 +46,11 @@ $(document).ready(function() {
               '<td>'+valor[0].saldo_combustible+'</td>'+
             '</tr>'+
 			'');
-
-			//alert(llave+"-"+valor[0].fecha_rendicion);
 		});
-
-		//$("#lista_rendiciones").html(data);
+	});
+	
+	$("#items").live("click", function (e) {
+		alert("aca ando");
 	});
 });
 
