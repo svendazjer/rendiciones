@@ -17,9 +17,14 @@ $(document).ready(function() {
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock").html(data);
+				$.mobile.changePage("#page");
 		});
 		
 		return false;
+	});
+	
+	$.get("http://192.168.1.124/rendicionesweb/lista_rendiciones.php", function(data){
+		$("#lista_rendiciones").html(data);
 	});
 });
 
