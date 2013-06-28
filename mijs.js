@@ -81,11 +81,22 @@ function cargarendiciones() {
 			'<th>Saldo</th>'+
 			'<th>Saldo combustible</th>'+
 		'</tr>'+
+		'<tr align="left">'+
+			'<td colspan="3">Cargando rendiciones...</td>'+
+		'</tr>'+
 	'');
 
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
     
+		$("#lista_rendiciones").html(''+
+			'<tr align="left">'+
+				'<th>Rendici&oacute;n</th>'+
+				'<th>Saldo</th>'+
+				'<th>Saldo combustible</th>'+
+			'</tr>'+
+		'');
+		
 		$.each(datos, function(llave, valor){
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
