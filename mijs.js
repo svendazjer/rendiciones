@@ -54,32 +54,24 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
-		var datos=$.parseJSON(data);
-
-		$.each(datos, function(llave, valor){
-			/*
-			$("#lista_rendiciones").append(''+
-            '<div data-role="collapsible" data-collapsed="true">'+
-              '<h3>'+valor[0].fecha_rendicion+'</h3>'+
-              '<p>'+llave+'</p>'+
-              '<p>'+valor[0].saldo_anterior+'</p>'+
-              '<p>'+valor[0].monto_asignado+'</p>'+
-            '</div>'+
-			'');
-			*/
-			$("#lista_rendiciones").append(''+
-            '<tr align="left">'+
-              '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
-              '<td>'+valor[0].saldo_a_devolver+'</td>'+
-              '<td>'+valor[0].saldo_combustible+'</td>'+
-            '</tr>'+
-			'');
-		});
-	});
-
 	$("#itemspage").live("pageshow", function (e) {
 		//alert(window.location+"-"+sessionStorage.id);
+	});
+
+	$("#page").live("pageshow", function (e) {
+	  $.get(urlrendiciones+"lista_rendiciones.php", function(data){
+		  var datos=$.parseJSON(data);
+  
+		  $.each(datos, function(llave, valor){
+			  $("#lista_rendiciones").append(''+
+			  '<tr align="left">'+
+				'<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+				'<td>'+valor[0].saldo_a_devolver+'</td>'+
+				'<td>'+valor[0].saldo_combustible+'</td>'+
+			  '</tr>'+
+			  '');
+		  });
+	  });
 	});
 
 });
