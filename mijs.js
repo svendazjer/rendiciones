@@ -66,22 +66,26 @@ $(document).ready(function() {
 	});
 
 	$("#page").live("pageshow", function (e) {
-	  $.get(urlrendiciones+"lista_rendiciones.php", function(data){
-		  var datos=$.parseJSON(data);
-  
-		  $.each(datos, function(llave, valor){
-			  $("#lista_rendiciones").append(''+
-			  '<tr align="left">'+
-				'<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
-				'<td>'+valor[0].saldo_a_devolver+'</td>'+
-				'<td>'+valor[0].saldo_combustible+'</td>'+
-			  '</tr>'+
-			  '');
-		  });
-	  });
+  		cargarendiciones();
 	});
 
 });
+
+function cargarendiciones() {
+	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
+		var datos=$.parseJSON(data);
+  
+		$.each(datos, function(llave, valor){
+			$("#lista_rendiciones").html(''+
+			'<tr align="left">'+
+			  '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
+			  '<td>'+valor[0].saldo_combustible+'</td>'+
+			'</tr>'+
+			'');
+		});
+	});
+}
 
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
