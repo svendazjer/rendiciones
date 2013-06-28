@@ -74,21 +74,21 @@ $(document).ready(function() {
 });
 
 function cargarendiciones() {
+	$("#lista_rendiciones").html(''+
+		'<tr align="left">'+
+			'<th>Rendici&oacute;n</th>'+
+			'<th>Saldo</th>'+
+			'<th>Saldo combustible</th>'+
+		'</tr>'+
+	'');
+
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
-
-		$("#lista_rendiciones").html(''+
-			'<tr align="left">'+
-				'<th>Rendici&oacute;n</th>'+
-				'<th>Saldo</th>'+
-				'<th>Saldo combustible</th>'+
-			'</tr>'+
-		'');
     
 		$.each(datos, function(llave, valor){
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
-			  '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+			  '<td><a id="itemsrlz" href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
 			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
 			  '<td>'+valor[0].saldo_combustible+'</td>'+
 			'</tr>'+
@@ -96,6 +96,31 @@ function cargarendiciones() {
 		});
 	});
 }
+
+function cargaritems() {
+	$("#lista_items").html(''+
+		'<tr align="left">'+
+			'<th>Item</th>'+
+			'<th>Saldo</th>'+
+			'<th>Saldo combustible</th>'+
+		'</tr>'+
+	'');
+
+	$.get(urlrendiciones+"lista_items.php", function(data){
+		var datos=$.parseJSON(data);
+		    
+		$.each(datos, function(llave, valor){
+			$("#lista_items").append(''+
+			'<tr align="left">'+
+			  '<td><a id="itemsrlz" href="#nuevo_item" onclick="sessionStorage.id_item='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
+			  '<td>'+valor[0].saldo_combustible+'</td>'+
+			'</tr>'+
+			'');
+		});
+	});
+}
+
 
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
@@ -160,7 +185,7 @@ function onPhotoURISuccess(imageURI) {
 //
 function capturePhoto() {
 	// Take picture using device camera and retrieve image as base64-encoded string
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80,destinationType: destinationType.DATA_URL });
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80,destinationType: destinationType.DATA_URL, correctOrientation:true });
 	//navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
 	//navigator.device.capture.captureImage(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
 }
