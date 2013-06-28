@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	$("#nuevo_item_form").submit(function(e) {
 		e.preventDefault();
-		return false;
+		//return false;
 		// Un mensaje de estado
 		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
