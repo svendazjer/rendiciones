@@ -135,7 +135,7 @@ function cargaritems() {
 			'<th>Descripcion</th>'+
 		'</tr>'+
 		'<tr align="left">'+
-			'<td colspan="3">Cargando items...</td>'+
+			'<td colspan="3">Cargando items...'+sessionStorage.id_rendicion+'</td>'+
 		'</tr>'+
 	'');
 
