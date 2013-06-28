@@ -12,11 +12,13 @@ $(document).ready(function() {
 		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
 		$.post(urlrendiciones+"guarda_rendicion.php", {
-				enviar:$("#guardar").val(), 
-				fecha_rendicion: $("#fecha_rendicion").val(), 
-				saldo_anterior: $("#saldo_anterior").val(),
-				monto_asignado: $("#monto_asignado").val(),
-				combustible_asignado: $("#combustible_asignado").val()
+				enviar:$("#guardar").val(),
+				id_rendicion:sessionStore.id_rendicion,
+				fecha: $("#fecha_item").val(), 
+				numero_documento: $("#numero_documento").val(),
+				descripcion: $("#descripcion").val(),
+				tipo: $("#items").val(),
+				monto: $("#monto").val()
 			}, 
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
@@ -64,7 +66,7 @@ $(document).ready(function() {
 			*/
 			$("#lista_rendiciones").append(''+
             '<tr align="left">'+
-              '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+              '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
               '<td>'+valor[0].saldo_a_devolver+'</td>'+
               '<td>'+valor[0].saldo_combustible+'</td>'+
             '</tr>'+
