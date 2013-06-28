@@ -68,7 +68,10 @@ $(document).ready(function() {
 	});
 
 	$("#itemspage").live("pageshow", function (e) {
-		if(sessionStorage.id_item==0) {
+		
+		cargaritems();
+		
+		if(sessionStorage.id_item==null) {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
 			$("#descripcion").val("");
@@ -136,7 +139,7 @@ function cargaritems() {
 		'</tr>'+
 	'');
 
-	$.get(urlrendiciones+"lista_items.php", function(data){
+	$.get(urlrendiciones+"lista_items.php?id_rendicion="+sessionStorage.id_rendicion, function(data){
 		var datos=$.parseJSON(data);
 		    
 	  $("#lista_items").html(''+
