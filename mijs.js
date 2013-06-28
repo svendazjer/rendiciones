@@ -5,34 +5,6 @@ $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
 
-	$("#nuevo_item_form").submit(function(e) {
-		e.preventDefault();
-		//return false;
-		// Un mensaje de estado
-		//alert("wtf!");
-		$("#resultBlock2").html("Guardando...");
-		// Hacemos un peticion web y obtenemos la data
-		//alert("wtf2222! "+sessionStorage.id_rendicion);
-		$.post(urlrendiciones+"guarda_item.php", {
-				enviar:$("#guardar").val(),
-				id_rendicion:sessionStorage.id_rendicion,
-				fecha: $("#fecha_item").val(), 
-				numero_documento: $("#numero_documento").val(),
-				descripcion: $("#descripcion").val(),
-				tipo: $("#items").val(),
-				monto: $("#monto").val(),
-				lafoto: sessionStorage.lafoto
-			},
-			function(data) {
-				alert("q ondiwi");
-				// Cargamos la data dentro de la etiqueta p
-				$("#resultBlock2").html(data);
-				//$.mobile.changePage("#itemspage");
-		});
-		
-		return false;
-	});
-
 	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
@@ -54,8 +26,43 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$("#nuevo_item_form").submit(function(e) {
+		e.preventDefault();
+		//return false;
+		// Un mensaje de estado
+		//alert("wtf!");
+		$("#resultBlock2").html("Guardando...");
+		// Hacemos un peticion web y obtenemos la data
+		//alert("wtf2222! "+sessionStorage.id_rendicion);
+		$.post(urlrendiciones+"guarda_item.php", {
+				enviar:$("#guardar").val(),
+				id_rendicion:sessionStorage.id_rendicion,
+				fecha: $("#fecha_item").val(), 
+				numero_documento: $("#numero_documento").val(),
+				descripcion: $("#descripcion").val(),
+				tipo: $("#items").val(),
+				monto: $("#monto").val(),
+				lafoto: sessionStorage.lafoto
+			},
+			function(data) {
+				//alert("q ondiwi");
+				// Cargamos la data dentro de la etiqueta p
+				$("#resultBlock2").html(data);
+				//$.mobile.changePage("#itemspage");
+		});
+		
+		return false;
+	});
+
 	$("#itemspage").live("pageshow", function (e) {
-		//alert(window.location+"-"+sessionStorage.id);
+		if(sessionStorage.id_item==0) {
+			$("#fecha_item").val("");
+			$("#numero_documento").val("");
+			$("#descripcion").val("");
+			$("#items").val("");
+			$("#monto").val("");
+			$("#smallImage").attr("src", "");
+		}
 	});
 
 	$("#page").live("pageshow", function (e) {
