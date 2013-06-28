@@ -9,9 +9,9 @@ $(document).ready(function() {
 		e.preventDefault();
 		//return false;
 		// Un mensaje de estado
-		$("#resultBlock").html("Guardando...");
+		$("#resultBlock2").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		$.post(urlrendiciones+"guarda_rendicion.php", {
+		$.post(urlrendiciones+"guarda_item.php", {
 				enviar:$("#guardar").val(),
 				id_rendicion:sessionStore.id_rendicion,
 				fecha: $("#fecha_item").val(), 
@@ -22,6 +22,7 @@ $(document).ready(function() {
 				lafoto: sessionStorage.lafoto
 			}, 
 			function(data) {
+				alert("q ondiwi");
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock2").html(data);
 				//$.mobile.changePage("#itemspage");
