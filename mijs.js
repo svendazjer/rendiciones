@@ -68,6 +68,8 @@ $(document).ready(function() {
 	$("#page").live("pageshow", function (e) {
   		cargarendiciones();
 	});
+	
+	cargarendiciones();
 
 });
 
