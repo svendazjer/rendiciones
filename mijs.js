@@ -6,6 +6,7 @@ $(document).ready(function() {
 	//$("#guardar").click(function(e) {
 
 	$("#nuevo_item_form").submit(function(e) {
+		alert("wtf!");
 		e.preventDefault();
 		//return false;
 		// Un mensaje de estado
