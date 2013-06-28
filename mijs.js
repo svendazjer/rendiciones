@@ -76,9 +76,17 @@ $(document).ready(function() {
 function cargarendiciones() {
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
-  
+
+		$("$}#lista_rendiciones").html(''+
+			'<tr align="left">'+
+				'<th>Rendici&oacute;n</th>'+
+				'<th>Saldo</th>'+
+				'<th>Saldo combustible</th>'+
+			'</tr>'+
+		'');
+    
 		$.each(datos, function(llave, valor){
-			$("#lista_rendiciones").html(''+
+			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
 			  '<td><a id="itemsrlz" href="#itemspage?rendicion='+valor[0].id+'" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
 			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
