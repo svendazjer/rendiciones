@@ -117,7 +117,7 @@ function onPhotoDataSuccess(imageData) {
 	//
 	smallImage.src = "data:image/jpeg;base64," + imageData;
 	
-	alert(imageData.name);
+	//alert(imageData.name);
 }
 
 // Called when a photo is successfully retrieved
