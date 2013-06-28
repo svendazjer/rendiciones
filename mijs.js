@@ -1,4 +1,13 @@
 
+var tipoitmes = [];
+tipoitmes[1]="Servicios terceros";
+tipoitmes[2]="Traslados";
+tipoitmes[3]="Combustible";
+tipoitmes[4]="Materiales of.";
+tipoitmes[5]="Consumo";
+tipoitmes[6]="Alojamiento";
+tipoitmes[7]="Varios";
+
 //var urlrendiciones="http://192.168.1.124/rendicionesweb/";
 var urlrendiciones="http://s2.intus.cl/rendicionesweb/";
 
@@ -115,21 +124,44 @@ function cargarendiciones() {
 function cargaritems() {
 	$("#lista_items").html(''+
 		'<tr align="left">'+
+			'<th>Fecha</th>'+
+			'<th>N&ordm; doc.</th>'+
+			'<th>Monto</th>'+
 			'<th>Item</th>'+
-			'<th>Saldo</th>'+
-			'<th>Saldo combustible</th>'+
+			'<th>Descripcion</th>'+
+			'<th>Descripcion</th>'+
+		'</tr>'+
+		'<tr align="left">'+
+			'<td colspan="3">Cargando items...</td>'+
 		'</tr>'+
 	'');
 
 	$.get(urlrendiciones+"lista_items.php", function(data){
 		var datos=$.parseJSON(data);
 		    
+	  $("#lista_items").html(''+
+		  '<tr align="left">'+
+			  '<th>Fecha</th>'+
+			  '<th>N&ordm; doc.</th>'+
+			  '<th>Monto</th>'+
+			  '<th>Item</th>'+
+			  '<th>Descripcion</th>'+
+			  '<th>Boleta/Factura</th>'+
+		  '</tr>'+
+		  '<tr align="left">'+
+			  '<td colspan="3">Cargando items...</td>'+
+		  '</tr>'+
+	  '');
+
 		$.each(datos, function(llave, valor){
 			$("#lista_items").append(''+
 			'<tr align="left">'+
-			  '<td><a id="itemsrlz" href="#nuevo_item" onclick="sessionStorage.id_item='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
-			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
-			  '<td>'+valor[0].saldo_combustible+'</td>'+
+			  '<td>'+valor[0].fecha+'</td>'+
+			  '<td>'+valor[0].numero_documento+'</td>'+
+			  '<td>'+valor[0].monto+'</td>'+
+			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
+			  '<td>'+valor[0].descripcion+'</td>'+
+			  '<td><a href="'+urlrendiciones+valor[0].boleta_factura+'">Ver</td>'+
 			'</tr>'+
 			'');
 		});
