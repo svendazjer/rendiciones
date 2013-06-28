@@ -4,7 +4,7 @@ var urlrendiciones="http://192.168.1.124/rendicionesweb/";
 $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
-	$("#nueva_rendicion").submit(function(e) {
+	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
 		$("#resultBlock").html("Guardando...");

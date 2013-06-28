@@ -45,7 +45,7 @@
 	</div>
 	<div data-role="content">
 	  <div data-role="fieldcontain">
-      <form method="POST" name="nueva_rendicion" id="nueva_rendicion">
+      <form method="POST" name="nueva_rendicion_form" id="nueva_rendicion_form">
 	    <label for="fecha_rendicion">Fecha:</label>
 		<input type="date" name="fecha_rendicion" id="fecha_rendicion" value="" required />	
 	    <label for="saldo_anterior">Saldo anterior:</label>
@@ -84,15 +84,13 @@
 	</div>
 	<div data-role="content">
       <div data-role="fieldcontain">
-        <form method="POST" name="nueva_rendicion" id="nueva_rendicion">
-          <label for="fecha_rendicion">Fecha:</label>
-          <input type="date" name="fecha_rendicion" id="fecha_rendicion" value="" required />	
-          <label for="saldo_anterior">Saldo anterior:</label>
-          <input type="number" name="saldo_anterior" id="saldo_anterior" value="" requited />      
-          <label for="monto_asignado">Monto asignado:</label>
-          <input type="number" name="monto_asignado" id="monto_asignado" value="" required />      
-          <label for="combustible_asignado">Combustible asignado:</label>
-          <input type="number" name="combustible_asignado" id="combustible_asignado" value="" required />      
+        <form method="POST" name="nuevo_item_form" id="nuevo_item_form">
+          <label for="fecha_item">Fecha:</label>
+          <input type="date" name="fecha_item" id="fecha_item" value="" required />	
+          <label for="numero_documento">N&uacute;mero documento:</label>
+          <input type="text" name="numero_documento" id="numero_documento" value="" requited />      
+          <label for="descripcion">Descripci&oacute;n:</label>
+          <input type="text" name="descripcion" id="descripcion" value="" required />      
           <label for="items" class="select">Item:</label>
           <select name="items" id="items">
             <option value="1">Servicios terceros</option>
@@ -103,6 +101,9 @@
             <option value="6">Alojamientos</option>
             <option value="7">Gastos varios</option>
           </select>
+          <label for="monto">Monto:</label>
+          <input type="number" name="monto" id="monto" value="" required />
+          <button data-role="button" id="boleta_factura" name="boleta_factura" onclick="capturePhoto();">
           <input type="submit" data-role="button" id="guardar" value="Guardar">
         </form>
       </div>
