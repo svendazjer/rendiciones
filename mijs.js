@@ -4,6 +4,29 @@ var urlrendiciones="http://192.168.1.124/rendicionesweb/";
 $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
+
+	$("#nuevo_item_form").submit(function(e) {
+		e.preventDefault();
+		return false;
+		// Un mensaje de estado
+		$("#resultBlock").html("Guardando...");
+		// Hacemos un peticion web y obtenemos la data
+		$.post(urlrendiciones+"guarda_rendicion.php", {
+				enviar:$("#guardar").val(), 
+				fecha_rendicion: $("#fecha_rendicion").val(), 
+				saldo_anterior: $("#saldo_anterior").val(),
+				monto_asignado: $("#monto_asignado").val(),
+				combustible_asignado: $("#combustible_asignado").val()
+			}, 
+			function(data) {
+				// Cargamos la data dentro de la etiqueta p
+				$("#resultBlock").html(data);
+				$.mobile.changePage("#page");
+		});
+		
+		return false;
+	});
+
 	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
@@ -117,8 +140,8 @@ function onPhotoURISuccess(imageURI) {
 //
 function capturePhoto() {
 	// Take picture using device camera and retrieve image as base64-encoded string
-	//navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
-	navigator.device.capture.captureImage(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
+	//navigator.device.capture.captureImage(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
 }
 
 // A button will call this function
