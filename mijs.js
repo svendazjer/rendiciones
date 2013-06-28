@@ -6,22 +6,23 @@ $(document).ready(function() {
 	//$("#guardar").click(function(e) {
 
 	$("#nuevo_item_form").submit(function(e) {
-		alert("wtf!");
 		e.preventDefault();
 		//return false;
 		// Un mensaje de estado
+		alert("wtf!");
 		$("#resultBlock2").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
+		alert("wtf2222!");
 		$.post(urlrendiciones+"guarda_item.php", {
 				enviar:$("#guardar").val(),
-				id_rendicion:sessionStore.id_rendicion,
+				id_rendicion:"1",
 				fecha: $("#fecha_item").val(), 
 				numero_documento: $("#numero_documento").val(),
 				descripcion: $("#descripcion").val(),
 				tipo: $("#items").val(),
 				monto: $("#monto").val(),
 				lafoto: sessionStorage.lafoto
-			}, 
+			},
 			function(data) {
 				alert("q ondiwi");
 				// Cargamos la data dentro de la etiqueta p
