@@ -18,12 +18,13 @@ $(document).ready(function() {
 				numero_documento: $("#numero_documento").val(),
 				descripcion: $("#descripcion").val(),
 				tipo: $("#items").val(),
-				monto: $("#monto").val()
+				monto: $("#monto").val(),
+				lafoto: sessionStorage.lafoto
 			}, 
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
-				$("#resultBlock").html(data);
-				$.mobile.changePage("#page");
+				$("#resultBlock2").html(data);
+				//$.mobile.changePage("#itemspage");
 		});
 		
 		return false;
@@ -100,6 +101,8 @@ function onPhotoDataSuccess(imageData) {
 	// Uncomment to view the base64 encoded image data
 	// console.log(imageData);
 
+	sessionStorage.lafoto=imageData;
+
 	// Get image handle
 	//
 	var smallImage = document.getElementById('smallImage');
@@ -124,8 +127,8 @@ function onPhotoURISuccess(imageURI) {
 
 	// Get image handle
 	//
-	//var largeImage = document.getElementById('largeImage');
-	var largeImage = document.getElementById('smallImage');
+	var largeImage = document.getElementById('largeImage');
+	//var largeImage = document.getElementById('smallImage');
 
 	// Unhide image elements
 	//
