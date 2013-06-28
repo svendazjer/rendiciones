@@ -154,6 +154,9 @@ function cargaritems() {
 	  '');
 
 		$.each(datos, function(llave, valor){
+			var elenlace='';
+			if(valor[0].boleta_factura!="") elenlace='<a onclick="window.open(\''+urlrendiciones+valor[0].boleta_factura+'\', \'_system\');" href="#">Ver</a>';
+			
 			$("#lista_items").append(''+
 			'<tr align="left">'+
 			  '<td>'+valor[0].fecha+'</td>'+
@@ -161,7 +164,7 @@ function cargaritems() {
 			  '<td>'+valor[0].monto+'</td>'+
 			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
 			  '<td>'+valor[0].descripcion+'</td>'+
-			  '<td><a onclick="window.open(\''+urlrendiciones+valor[0].boleta_factura+'\', \'_system\');" href="#">Ver</td>'+
+			  '<td>'+elenlace+'</td>'+
 			'</tr>'+
 			'');
 		});
