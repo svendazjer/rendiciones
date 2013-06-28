@@ -24,6 +24,8 @@ $(document).ready(function() {
 				$.mobile.changePage("#page");
 		});
 		
+		cargarendiciones();
+		
 		return false;
 	});
 	
@@ -67,7 +69,7 @@ $(document).ready(function() {
 	});
 
 	$("#page").live("pageshow", function (e) {
-  		cargarendiciones();
+  		//cargarendiciones();
 	});
 	
 	cargarendiciones();
