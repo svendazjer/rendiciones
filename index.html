@@ -66,26 +66,52 @@
 
 <div data-role="page" id="itemspage">
 	<div data-role="header">
-		<h1>Nuevo item</h1>
+		<h1>Items</h1>
 	</div>
-	<div data-role="content">	
+	<div data-role="content">
+      <ul data-role="listview">
+          <li><a href="#nuevo_item">Nuevo Item</a></li>
+      </ul>
+	</div>
+	<div data-role="footer">
+		<h4><a href="#page">Pie de página</a></h4>
+	</div>
+</div>
+
+<div data-role="page" id="nuevo_item">
+	<div data-role="header">
+		<h1>Nuevo Item</h1>
+	</div>
+	<div data-role="content">
       <div data-role="fieldcontain">
-        <label for="items" class="select">Item:</label>
-        <select name="items" id="items">
-          <option value="1">Servicios terceros</option>
-          <option value="2">Traslados</option>
-          <option value="3">Combustible</option>
-          <option value="4">Materiales de oficina</option>
-          <option value="5">Consumo</option>
-          <option value="6">Alojamientos</option>
-          <option value="7">Gastos varios</option>
-        </select>
+        <form method="POST" name="nueva_rendicion" id="nueva_rendicion">
+          <label for="fecha_rendicion">Fecha:</label>
+          <input type="date" name="fecha_rendicion" id="fecha_rendicion" value="" required />	
+          <label for="saldo_anterior">Saldo anterior:</label>
+          <input type="number" name="saldo_anterior" id="saldo_anterior" value="" requited />      
+          <label for="monto_asignado">Monto asignado:</label>
+          <input type="number" name="monto_asignado" id="monto_asignado" value="" required />      
+          <label for="combustible_asignado">Combustible asignado:</label>
+          <input type="number" name="combustible_asignado" id="combustible_asignado" value="" required />      
+          <label for="items" class="select">Item:</label>
+          <select name="items" id="items">
+            <option value="1">Servicios terceros</option>
+            <option value="2">Traslados</option>
+            <option value="3">Combustible</option>
+            <option value="4">Materiales de oficina</option>
+            <option value="5">Consumo</option>
+            <option value="6">Alojamientos</option>
+            <option value="7">Gastos varios</option>
+          </select>
+          <input type="submit" data-role="button" id="guardar" value="Guardar">
+        </form>
       </div>
 	</div>
 	<div data-role="footer">
 		<h4><a href="#page">Pie de página</a></h4>
 	</div>
 </div>
+
 
 </body>
 </html>
