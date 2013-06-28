@@ -161,7 +161,7 @@ function cargaritems() {
 			  '<td>'+valor[0].monto+'</td>'+
 			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
 			  '<td>'+valor[0].descripcion+'</td>'+
-			  '<td><a href="'+urlrendiciones+valor[0].boleta_factura+'">Ver</td>'+
+			  '<td><a onclick="window.open(\''+urlrendiciones+valor[0].boleta_factura+'\', \'_system\');" href="#">Ver</td>'+
 			'</tr>'+
 			'');
 		});
