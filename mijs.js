@@ -12,10 +12,10 @@ $(document).ready(function() {
 		alert("wtf!");
 		$("#resultBlock2").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		alert("wtf2222!");
+		alert("wtf2222! "+sessionStorage.id_rendicion);
 		$.post(urlrendiciones+"guarda_item.php", {
 				enviar:$("#guardar").val(),
-				id_rendicion:"1",
+				id_rendicion:sessionStorage.id_rendicion,
 				fecha: $("#fecha_item").val(), 
 				numero_documento: $("#numero_documento").val(),
 				descripcion: $("#descripcion").val(),
