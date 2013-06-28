@@ -9,10 +9,10 @@ $(document).ready(function() {
 		e.preventDefault();
 		//return false;
 		// Un mensaje de estado
-		alert("wtf!");
+		//alert("wtf!");
 		$("#resultBlock2").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		alert("wtf2222! "+sessionStorage.id_rendicion);
+		//alert("wtf2222! "+sessionStorage.id_rendicion);
 		$.post(urlrendiciones+"guarda_item.php", {
 				enviar:$("#guardar").val(),
 				id_rendicion:sessionStorage.id_rendicion,
@@ -147,7 +147,7 @@ function onPhotoURISuccess(imageURI) {
 //
 function capturePhoto() {
 	// Take picture using device camera and retrieve image as base64-encoded string
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80,destinationType: destinationType.DATA_URL });
 	//navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
 	//navigator.device.capture.captureImage(onPhotoDataSuccess, onFail, { quality: 50,destinationType: destinationType.DATA_URL });
 }
