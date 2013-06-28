@@ -77,7 +77,7 @@ function cargarendiciones() {
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
 
-		$("$}#lista_rendiciones").html(''+
+		$("#lista_rendiciones").html(''+
 			'<tr align="left">'+
 				'<th>Rendici&oacute;n</th>'+
 				'<th>Saldo</th>'+
