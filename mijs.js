@@ -1,5 +1,6 @@
 
-var urlrendiciones="http://192.168.1.124/rendicionesweb/";
+//var urlrendiciones="http://192.168.1.124/rendicionesweb/";
+var urlrendiciones="http://s2.intus.cl/rendicionesweb/";
 
 $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
