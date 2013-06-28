@@ -11,6 +11,8 @@
 <plugin name="Storage" value="org.apache.cordova.Storage" />
 <plugin name="Capture" value="org.apache.cordova.Capture"/>
 
+<preference name="phonegap-version" value="2.9.0" />
+
 <!--<preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
 <feature name="http://api.phonegap.com/1.0/camera"/>

@@ -71,13 +71,9 @@ $(document).ready(function() {
 			'');
 		});
 	});
-	
-	$("#itemsrlz").click(function (e) {
-		alert("aca ando en otro lado");
-	});
 
 	$("#itemspage").live("pageshow", function (e) {
-		alert(window.location+"-"+sessionStorage.id);
+		//alert(window.location+"-"+sessionStorage.id);
 	});
 
 });
