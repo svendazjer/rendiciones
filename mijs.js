@@ -21,11 +21,12 @@ $(document).ready(function() {
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock").html(data);
+		
+				cargarendiciones();
+
 				$.mobile.changePage("#page");
 		});
-		
-		cargarendiciones();
-		
+				
 		return false;
 	});
 	
