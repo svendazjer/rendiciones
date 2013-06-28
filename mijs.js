@@ -186,7 +186,7 @@ function onPhotoURISuccess(imageURI) {
 function capturePhoto() {
 	// Take picture using device camera and retrieve image as base64-encoded string
 	//navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80,destinationType: destinationType.DATA_URL, correctOrientation:true });
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80, destinationType: destinationType.DATA_URL, correctOrientation:true, encodingType: Camera.EncodingType.JPEG, saveToPhotoAlbum: true });
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80, destinationType: destinationType.DATA_URL, correctOrientation:true, saveToPhotoAlbum: true });
 	
 	//navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80,destinationType: destinationType.FILE_URI, correctOrientation:true });
 }
