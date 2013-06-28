@@ -135,7 +135,7 @@ function cargaritems() {
 			'<th>Descripcion</th>'+
 		'</tr>'+
 		'<tr align="left">'+
-			'<td colspan="3">Cargando items...'+sessionStorage.id_rendicion+'</td>'+
+			'<td colspan="3">Cargando items...</td>'+
 		'</tr>'+
 	'');
 
@@ -150,9 +150,6 @@ function cargaritems() {
 			  '<th>Item</th>'+
 			  '<th>Descripcion</th>'+
 			  '<th>Boleta/Factura</th>'+
-		  '</tr>'+
-		  '<tr align="left">'+
-			  '<td colspan="3">Cargando items...</td>'+
 		  '</tr>'+
 	  '');
 
