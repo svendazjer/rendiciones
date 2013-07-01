@@ -25,6 +25,7 @@ $(document).ready(function() {
 				fecha_rendicion: $("#fecha_rendicion").val(), 
 				saldo_anterior: $("#saldo_anterior").val(),
 				monto_asignado: $("#monto_asignado").val(),
+				saldo_anterior_combustible: $("#saldo_anterior_combustible").val(),
 				combustible_asignado: $("#combustible_asignado").val()
 			}, 
 			function(data) {
@@ -61,7 +62,8 @@ $(document).ready(function() {
 				//alert("q ondiwi");
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock2").html(data);
-				//$.mobile.changePage("#itemspage");
+				
+				$.mobile.changePage("#itemspage");
 		});
 		
 		return false;
