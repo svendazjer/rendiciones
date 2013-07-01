@@ -153,7 +153,7 @@ function cargaritems() {
 		  '</tr>'+
 	  '');
 
-		$.each(datos, function(llave, valor){
+		$.each(datos, function(llave, valor){			
 			var elenlace='';
 			if(valor[0].boleta_factura!="") elenlace='<a onclick="window.open(\''+urlrendiciones+valor[0].boleta_factura+'\', \'_system\');" href="#">Ver</a>';
 			
