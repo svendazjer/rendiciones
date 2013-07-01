@@ -63,7 +63,7 @@ $(document).ready(function() {
 				// Cargamos la data dentro de la etiqueta p
 				$("#resultBlock2").html(data);
 				
-				$.mobile.changePage("#itemspage");
+				//$.mobile.changePage("#itemspage");
 		});
 		
 		return false;
