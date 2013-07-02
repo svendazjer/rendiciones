@@ -68,6 +68,7 @@ $(document).ready(function() {
 				
 				if(data=="TAMOSRULES") {
 					cargarendiciones();
+					cargaritems();
 					
 					$.mobile.changePage("#itemspage");
 				}
@@ -77,8 +78,7 @@ $(document).ready(function() {
 	});
 
 	$("#itemspage").live("pageshow", function (e) {
-		
-		cargaritems();
+		//cargaritems();
 	});
 
 	$("#page").live("pageshow", function (e) {
@@ -86,13 +86,13 @@ $(document).ready(function() {
 	});
 
 	$("#nuevo_item").live("pageshow", function (e) {
-		alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].descripcion);
+		alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
 
 		if(sessionStorage.id_item=="") {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
 			$("#descripcion").val("");
-			$("#items").val("");
+			$("#items").val("0");
 			$("#monto").val("");
 			$("#smallImage").attr("src", "");
 		}
@@ -105,9 +105,8 @@ $(document).ready(function() {
 		}
 	});
 
-	
 	cargarendiciones();
-
+	cargaritems();
 });
 
 function cargarendiciones() {
