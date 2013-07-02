@@ -90,12 +90,12 @@ $(document).ready(function() {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
 			$("#descripcion").val("");
-			$("#items").val("4");
+			$("#items").val(4);
 			$("#monto").val("");
 			$("#smallImage").attr("src", "");
 		}
 		else {
-			alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
+			//alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
 
 			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
 			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
