@@ -8,7 +8,8 @@ tipoitmes[5]="Consumo";
 tipoitmes[6]="Alojamiento";
 tipoitmes[7]="Varios";
 
-var listaitems = [];
+var datositem = [];
+var datosrendicion = [];
 
 //var urlrendiciones="http://192.168.1.124/rendicionesweb/";
 var urlrendiciones="http://s2.intus.cl/rendicionesweb/";
@@ -23,7 +24,8 @@ $(document).ready(function() {
 		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
 		$.post(urlrendiciones+"guarda_rendicion.php", {
-				enviar:$("#guardar").val(), 
+				enviar:$("#guardar").val(),
+				id_rendicion:sessionStorage.id_rendicion,
 				fecha_rendicion: $("#fecha_rendicion").val(), 
 				saldo_anterior: $("#saldo_anterior").val(),
 				monto_asignado: $("#monto_asignado").val(),
@@ -85,6 +87,23 @@ $(document).ready(function() {
   		//cargarendiciones();
 	});
 
+	$("#nueva_rendicion").live("pageshow", function (e) {
+		if(sessionStorage.id_rendicion=="") {
+			$("#fecha_rendicion").val("");
+			$("#saldo_anterior").val("");
+			$("#monto_asignado").val("");
+			$("#saldo_anterior_combustible").val("");
+			$("#combustible_asignado").val("");
+		}
+		else {
+			$("#fecha_rendicion").val(datosrendicion[sessionStorage.id_rendicion][0].fecha_rendicion);
+			$("#saldo_anterior").val(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior);
+			$("#monto_asignado").val(datosrendicion[sessionStorage.id_rendicion][0].monto_asignado);
+			$("#saldo_anterior_combustible").val(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior_combustible);
+			$("#combustible_asignado").val(datosrendicion[sessionStorage.id_rendicion][0].combustible_asignado);
+		}
+	});
+
 	$("#nuevo_item").live("pageshow", function (e) {
 		if(sessionStorage.id_item=="") {
 			$("#fecha_item").val("");
@@ -97,12 +116,11 @@ $(document).ready(function() {
 		else {
 			//alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
 
-			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
-			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
-			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
-			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
-			//$("#items").text(tipoitmes[listaitems[sessionStorage.id_item][0].tipo]);
-			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
+			$("#fecha_item").val(datositem[sessionStorage.id_item][0].fecha);
+			$("#numero_documento").val(datositem[sessionStorage.id_item][0].numero_documento);
+			$("#descripcion").val(datositem[sessionStorage.id_item][0].descripcion);
+			$("#items").val(datositem[sessionStorage.id_item][0].tipo);
+			$("#monto").val(datositem[sessionStorage.id_item][0].monto);
 		}
 	});
 
@@ -123,7 +141,8 @@ function cargarendiciones() {
 
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
-	
+		datosrendicion=datos;
+
 		$("#lista_rendiciones").html(''+
 			'<tr align="left">'+
 				'<th>Rendici&oacute;n</th>'+
@@ -161,7 +180,7 @@ function cargaritems() {
 
 	$.get(urlrendiciones+"lista_items.php?id_rendicion="+sessionStorage.id_rendicion, function(data){
 		var datos=$.parseJSON(data);
-    	listaitems=datos;
+    	datositem=datos;
 		    
 	  $("#lista_items").html(''+
 		  '<tr align="left">'+
