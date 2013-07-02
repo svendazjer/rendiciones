@@ -86,21 +86,22 @@ $(document).ready(function() {
 	});
 
 	$("#nuevo_item").live("pageshow", function (e) {
-		alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
-
 		if(sessionStorage.id_item=="") {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
 			$("#descripcion").val("");
-			$("#items").val("0");
+			$("#items").val("4");
 			$("#monto").val("");
 			$("#smallImage").attr("src", "");
 		}
 		else {
+			alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
+
 			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
 			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
 			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
-			$("#items").val("'"+listaitems[sessionStorage.id_item][0].tipo+"'");
+			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
+			$("#items").attr('selectedIndex', listaitems[sessionStorage.id_item][0].tipo);
 			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
 		}
 	});
