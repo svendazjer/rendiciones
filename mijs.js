@@ -87,13 +87,20 @@ $(document).ready(function() {
 	$("#nuevo_item").live("pageshow", function (e) {
 		alert(sessionStorage.id_item);
 
-		if(sessionStorage.id_item==null) {
+		if(sessionStorage.id_item=="") {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
 			$("#descripcion").val("");
 			$("#items").val("");
 			$("#monto").val("");
 			$("#smallImage").attr("src", "");
+		}
+		else {
+			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
+			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
+			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
+			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
+			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
 		}
 	});
 
@@ -129,7 +136,7 @@ function cargarendiciones() {
 		$.each(datos, function(llave, valor){
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
-			  '<td><a href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+			  '<td><a data-role="button" href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
 			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
 			  '<td>'+valor[0].saldo_combustible+'</td>'+
 			'</tr>'+
