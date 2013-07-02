@@ -85,7 +85,7 @@ $(document).ready(function() {
 	});
 
 	$("#nuevo_item").live("pageshow", function (e) {
-		alert(sessionStorage.id_item);
+		alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].descripcion);
 
 		if(sessionStorage.id_item=="") {
 			$("#fecha_item").val("");
@@ -97,7 +97,7 @@ $(document).ready(function() {
 		}
 		else {
 			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
-			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
+			$("#numero_documento").val("etere");
 			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
 			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
 			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
@@ -123,7 +123,6 @@ function cargarendiciones() {
 
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
-    	listaitems=datos;
 	
 		$("#lista_rendiciones").html(''+
 			'<tr align="left">'+
@@ -162,6 +161,7 @@ function cargaritems() {
 
 	$.get(urlrendiciones+"lista_items.php?id_rendicion="+sessionStorage.id_rendicion, function(data){
 		var datos=$.parseJSON(data);
+    	listaitems=datos;
 		    
 	  $("#lista_items").html(''+
 		  '<tr align="left">'+
