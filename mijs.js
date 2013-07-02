@@ -175,8 +175,8 @@ function cargarendiciones() {
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
 			  '<td><a data-role="button" href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
-			  '<td>$ '+accounting.formatNumber(valor[0].saldo_a_devolver)+'</td>'+
-			  '<td>$ '+accounting.formatNumber(valor[0].saldo_combustible)+'</td>'+
+			  '<td>$'+accounting.formatNumber(valor[0].saldo_a_devolver)+'</td>'+
+			  '<td>$'+accounting.formatNumber(valor[0].saldo_combustible)+'</td>'+
 			'</tr>'+
 			'');
 		});
@@ -221,7 +221,7 @@ function cargaritems() {
 			'<tr align="left">'+
 			  '<td><a href="#nuevo_item" onclick="sessionStorage.id_item='+llave+'" >'+valor[0].fecha+'</a></td>'+
 			  '<td>'+valor[0].numero_documento+'</td>'+
-			  '<td>$ '+accounting.formatNumber(valor[0].monto)+'</td>'+
+			  '<td>$'+accounting.formatNumber(valor[0].monto)+'</td>'+
 			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
 			  '<td>'+valor[0].descripcion+'</td>'+
 			  '<td>'+elenlace+'</td>'+
