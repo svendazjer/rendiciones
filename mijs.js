@@ -101,7 +101,7 @@ $(document).ready(function() {
 			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
 			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
 			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
-			$("#items").text(tipoitmes[listaitems[sessionStorage.id_item][0].tipo]);
+			//$("#items").text(tipoitmes[listaitems[sessionStorage.id_item][0].tipo]);
 			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
 		}
 	});
