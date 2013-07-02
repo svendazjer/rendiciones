@@ -8,6 +8,8 @@ tipoitmes[5]="Consumo";
 tipoitmes[6]="Alojamiento";
 tipoitmes[7]="Varios";
 
+var listaitems = [];
+
 //var urlrendiciones="http://192.168.1.124/rendicionesweb/";
 var urlrendiciones="http://s2.intus.cl/rendicionesweb/";
 
@@ -76,7 +78,15 @@ $(document).ready(function() {
 	$("#itemspage").live("pageshow", function (e) {
 		
 		cargaritems();
-		
+	});
+
+	$("#page").live("pageshow", function (e) {
+  		//cargarendiciones();
+	});
+
+	$("#nuevo_item").live("pageshow", function (e) {
+		alert(sessionStorage.id_item);
+
 		if(sessionStorage.id_item==null) {
 			$("#fecha_item").val("");
 			$("#numero_documento").val("");
@@ -87,9 +97,6 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#page").live("pageshow", function (e) {
-  		//cargarendiciones();
-	});
 	
 	cargarendiciones();
 
@@ -109,7 +116,8 @@ function cargarendiciones() {
 
 	$.get(urlrendiciones+"lista_rendiciones.php", function(data){
 		var datos=$.parseJSON(data);
-    
+    	listaitems=datos;
+	
 		$("#lista_rendiciones").html(''+
 			'<tr align="left">'+
 				'<th>Rendici&oacute;n</th>'+
@@ -121,7 +129,7 @@ function cargarendiciones() {
 		$.each(datos, function(llave, valor){
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
-			  '<td><a id="itemsrlz" href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
+			  '<td><a href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
 			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
 			  '<td>'+valor[0].saldo_combustible+'</td>'+
 			'</tr>'+
@@ -165,7 +173,7 @@ function cargaritems() {
 			
 			$("#lista_items").append(''+
 			'<tr align="left">'+
-			  '<td>'+valor[0].fecha+'</td>'+
+			  '<td><a href="#nuevo_item" onclick="sessionStorage.id_item='+llave+'" >'+valor[0].fecha+'</a></td>'+
 			  '<td>'+valor[0].numero_documento+'</td>'+
 			  '<td>'+valor[0].monto+'</td>'+
 			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
