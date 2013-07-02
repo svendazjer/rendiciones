@@ -53,6 +53,7 @@ $(document).ready(function() {
 		$.post(urlrendiciones+"guarda_item.php", {
 				enviar:$("#guardar").val(),
 				id_rendicion:sessionStorage.id_rendicion,
+				id_item:sessionStorage.id_item,
 				fecha: $("#fecha_item").val(), 
 				numero_documento: $("#numero_documento").val(),
 				descripcion: $("#descripcion").val(),
@@ -99,7 +100,7 @@ $(document).ready(function() {
 			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
 			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
 			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
-			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
+			$("#items").val("'"+listaitems[sessionStorage.id_item][0].tipo+"'");
 			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
 		}
 	});
