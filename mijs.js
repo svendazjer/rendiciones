@@ -18,16 +18,7 @@ $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
 
-	//$("#saldo_anterior").number(true, 2);
 	$("#saldo_anterior").keyup(function(e) {
-		//alert("q shusha po wecko");
-		//alert($("#saldo_anterior").number(true, 2));
-        //alert(accounting.formatMoney($("#saldo_anterior").val()));
-		//$("#saldo_anterior").val(accounting.formatMoney($("#saldo_anterior").val(), "$", 0, ".", ","));
-		//var etere=accounting.formatNumber($("#saldo_anterior").val());
-		//var etere=addCommas($("#saldo_anterior").val().replace(".", ""));
-		//var etere=addCommas("1000");
-		//alert("aka");
 		$("#saldo_anterior").val(accounting.formatNumber($("#saldo_anterior").val()));
     });
 
