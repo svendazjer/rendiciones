@@ -22,6 +22,18 @@ $(document).ready(function() {
 		$("#saldo_anterior").val(accounting.formatNumber($("#saldo_anterior").val()));
     });
 
+	$("#monto_asignado").keyup(function(e) {
+		$("#monto_asignado").val(accounting.formatNumber($("#monto_asignado").val()));
+    });
+
+	$("#saldo_anterior_combustible").keyup(function(e) {
+		$("#saldo_anterior_combustible").val(accounting.formatNumber($("#saldo_anterior_combustible").val()));
+    });
+
+	$("#combustible_asignado").keyup(function(e) {
+		$("#combustible_asignado").val(accounting.formatNumber($("#combustible_asignado").val()));
+    });
+
 	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
@@ -31,10 +43,10 @@ $(document).ready(function() {
 				enviar:$("#guardar").val(),
 				id_rendicion:sessionStorage.id_rendicion,
 				fecha_rendicion: $("#fecha_rendicion").val(), 
-				saldo_anterior: $("#saldo_anterior").val(),
-				monto_asignado: $("#monto_asignado").val(),
-				saldo_anterior_combustible: $("#saldo_anterior_combustible").val(),
-				combustible_asignado: $("#combustible_asignado").val()
+				saldo_anterior: $("#saldo_anterior").val().replace(".", ""),
+				monto_asignado: $("#monto_asignado").val().replace(".", ""),
+				saldo_anterior_combustible: $("#saldo_anterior_combustible").val().replace(".", ""),
+				combustible_asignado: $("#combustible_asignado").val().replace(".", "")
 			}, 
 			function(data) {
 				// Cargamos la data dentro de la etiqueta p
