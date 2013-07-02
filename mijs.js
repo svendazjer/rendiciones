@@ -97,7 +97,7 @@ $(document).ready(function() {
 		}
 		else {
 			$("#fecha_item").val(listaitems[sessionStorage.id_item][0].fecha);
-			$("#numero_documento").val("etere");
+			$("#numero_documento").val(listaitems[sessionStorage.id_item][0].numero_documento);
 			$("#descripcion").val(listaitems[sessionStorage.id_item][0].descripcion);
 			$("#items").val(listaitems[sessionStorage.id_item][0].tipo);
 			$("#monto").val(listaitems[sessionStorage.id_item][0].monto);
