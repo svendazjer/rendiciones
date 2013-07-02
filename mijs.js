@@ -18,7 +18,15 @@ $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
 
-	$("#saldo_anterior").number(true, 2);
+	//$("#saldo_anterior").number(true, 2);
+	$("#saldo_anterior").keydown(function(e) {
+		//alert("q shusha po wecko");
+		//alert($("#saldo_anterior").number(true, 2));
+        //alert(accounting.formatMoney($("#saldo_anterior").val()));
+		//$("#saldo_anterior").val(accounting.formatMoney($("#saldo_anterior").val(), "$", 0, ".", ","));
+		var etere=accounting.formatNumber($("#saldo_anterior").val());
+		$("#saldo_anterior").val(etere);
+    });
 
 	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
