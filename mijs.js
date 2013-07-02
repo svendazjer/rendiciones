@@ -92,7 +92,7 @@ $(document).ready(function() {
 			$("#descripcion").val("");
 			$("#items").val(4);
 			$("#monto").val("");
-			$("#smallImage").attr("src", "");
+			//$("#smallImage").attr("src", "");
 		}
 		else {
 			//alert(sessionStorage.id_item+"-"+listaitems[sessionStorage.id_item][0].tipo);
