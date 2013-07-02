@@ -76,7 +76,7 @@ $(document).ready(function() {
 				numero_documento: $("#numero_documento").val(),
 				descripcion: $("#descripcion").val(),
 				tipo: $("#items").val(),
-				monto: $("#monto").val(),
+				monto: $("#monto").val().replace(".", ""),
 				lafoto: sessionStorage.lafoto
 			},
 			function(data) {
@@ -113,10 +113,10 @@ $(document).ready(function() {
 		}
 		else {
 			$("#fecha_rendicion").val(datosrendicion[sessionStorage.id_rendicion][0].fecha_rendicion);
-			$("#saldo_anterior").val(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior);
-			$("#monto_asignado").val(datosrendicion[sessionStorage.id_rendicion][0].monto_asignado);
-			$("#saldo_anterior_combustible").val(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior_combustible);
-			$("#combustible_asignado").val(datosrendicion[sessionStorage.id_rendicion][0].combustible_asignado);
+			$("#saldo_anterior").val(accounting.formatNumber(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior));
+			$("#monto_asignado").val(accounting.formatNumber(datosrendicion[sessionStorage.id_rendicion][0].monto_asignado));
+			$("#saldo_anterior_combustible").val(accounting.formatNumber(datosrendicion[sessionStorage.id_rendicion][0].saldo_anterior_combustible));
+			$("#combustible_asignado").val(accounting.formatNumber(datosrendicion[sessionStorage.id_rendicion][0].combustible_asignado));
 		}
 	});
 
@@ -136,7 +136,7 @@ $(document).ready(function() {
 			$("#numero_documento").val(datositem[sessionStorage.id_item][0].numero_documento);
 			$("#descripcion").val(datositem[sessionStorage.id_item][0].descripcion);
 			$("#items").val(datositem[sessionStorage.id_item][0].tipo);
-			$("#monto").val(datositem[sessionStorage.id_item][0].monto);
+			$("#monto").val(accounting.formatNumber(datositem[sessionStorage.id_item][0].monto));
 		}
 	});
 
@@ -171,8 +171,8 @@ function cargarendiciones() {
 			$("#lista_rendiciones").append(''+
 			'<tr align="left">'+
 			  '<td><a data-role="button" href="#itemspage" onclick="sessionStorage.id_rendicion='+llave+'">'+valor[0].fecha_rendicion+'</a></td>'+
-			  '<td>'+valor[0].saldo_a_devolver+'</td>'+
-			  '<td>'+valor[0].saldo_combustible+'</td>'+
+			  '<td>'+accounting.formatNumber(valor[0].saldo_a_devolver)+'</td>'+
+			  '<td>'+accounting.formatNumber(valor[0].saldo_combustible)+'</td>'+
 			'</tr>'+
 			'');
 		});
@@ -217,7 +217,7 @@ function cargaritems() {
 			'<tr align="left">'+
 			  '<td><a href="#nuevo_item" onclick="sessionStorage.id_item='+llave+'" >'+valor[0].fecha+'</a></td>'+
 			  '<td>'+valor[0].numero_documento+'</td>'+
-			  '<td>'+valor[0].monto+'</td>'+
+			  '<td>'+accounting.formatNumber(valor[0].monto)+'</td>'+
 			  '<td>'+tipoitmes[valor[0].tipo]+'</td>'+
 			  '<td>'+valor[0].descripcion+'</td>'+
 			  '<td>'+elenlace+'</td>'+
