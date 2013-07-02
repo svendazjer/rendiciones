@@ -18,6 +18,8 @@ $(document).ready(function() {
 	//$.mobile.changePage("#nueva_rendicion");
 	//$("#guardar").click(function(e) {
 
+	$("#saldo_anterior").number(true, 2);
+
 	$("#nueva_rendicion_form").submit(function(e) {
 		e.preventDefault();
 		// Un mensaje de estado
