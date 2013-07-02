@@ -68,7 +68,7 @@ $(document).ready(function() {
 				
 				if(data=="TAMOSRULES") {
 					cargarendiciones();
-					cargaritems();
+					//cargaritems();
 					
 					$.mobile.changePage("#itemspage");
 				}
@@ -78,7 +78,7 @@ $(document).ready(function() {
 	});
 
 	$("#itemspage").live("pageshow", function (e) {
-		//cargaritems();
+		cargaritems();
 	});
 
 	$("#page").live("pageshow", function (e) {
@@ -106,7 +106,6 @@ $(document).ready(function() {
 	});
 
 	cargarendiciones();
-	cargaritems();
 });
 
 function cargarendiciones() {
