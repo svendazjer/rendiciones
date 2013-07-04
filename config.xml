@@ -17,7 +17,9 @@
 
 <feature name="http://api.phonegap.com/1.0/camera"/>
 <feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/storage"/>
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/capture"/>
 
 <icon src="logo_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
 <gap:splash src="splash_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
