@@ -7,7 +7,7 @@ $(document).ready(function() {
 		// Un mensaje de estado
 		$("#resultBlock").html("Guardando...");
 		// Hacemos un peticion web y obtenemos la data
-		$.post("http://192.168.1.124/rendicionesweb/guarda_rendicion.php", {
+		$.post("http://s2.intus.cl/rendicionesweb/guarda_rendicion.php", {
 				enviar:$("#guardar").val(), 
 				fecha_rendicion: $("#fecha_rendicion").val(), 
 				saldo_anterior: $("#saldo_anterior").val(),
@@ -23,7 +23,7 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$.get("http://192.168.1.124/rendicionesweb/lista_rendiciones.php", function(data){
+	$.get("http://s2.intus.cl/rendicionesweb/lista_rendiciones.php", function(data){
 		$("#lista_rendiciones").html(data);
 	});
 });
