@@ -1,5 +1,5 @@
 
-jQuery.noConflict();
+var $=jQuery.noConflict();
 
 var tipoitmes = [];
 tipoitmes[1]="Servicios terceros";
