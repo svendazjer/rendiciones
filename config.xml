@@ -6,17 +6,18 @@
 
 <name>Raxtel Rendiciones</name>
 
-<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
-<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
-<plugin name="Storage" value="org.apache.cordova.Storage" />
-<plugin name="Capture" value="org.apache.cordova.Capture"/>
+<preference name="phonegap-version" value="2.9.0" />
+
+<!--<uses-permission android:name="android.permission.INTERNET" />-->
 
 <!--<preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE" />-->
-
+<!--
 <feature name="http://api.phonegap.com/1.0/camera"/>
 <feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/storage"/>
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
-
+<feature name="http://api.phonegap.com/1.0/capture"/>
+-->
 <icon src="logo_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
 <gap:splash src="splash_raxtel_rendiciones.png" gap:platform="android" gap:density="ldpi" />
 
@@ -27,5 +28,12 @@ Aplicación para gestionar rendiciones de cuenta.
 <author href="http://raxtel.com" email="ftoloza@raxtel.com">
 Domy - Raxtel
 </author>
+
+<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+<plugin name="Storage" value="org.apache.cordova.Storage" />
+<plugin name="Capture" value="org.apache.cordova.Capture"/>
+
+<preference name="permissions" value="android.permission.INTERNET" />
 
 </widget>
