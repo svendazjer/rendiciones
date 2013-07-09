@@ -6,113 +6,73 @@
 <link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
 <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
-
-<script src="http://debug.phonegap.com/target/target-script-min.js#63bd34a0-e8ba-11e2-bca6-22000a98b3d6"></script>
-
+<script src="cordova.js" type="text/javascript"></script>
+<script src="mijs.js" type="text/javascript"></script>
 </head> 
 <body> 
-
-<!--<script src="phonegap.js" type="text/javascript"></script>-->
-<script src="cordova.js" type="text/javascript"></script>
-<script src="accounting.js" type="text/javascript"></script>
-<script src="mijs.js" type="text/javascript"></script>
-
-
 
 <div data-role="page" id="page">
 	<div data-role="header">
 		<h1>Raxtel Rendiciones</h1>
 	</div>
-	<div data-role="content">
+	<div data-role="content">	
 		<ul data-role="listview">
-			<li><a href="#nueva_rendicion" onclick="sessionStorage.id_rendicion=''">Nueva Rendición</a></li>
-		</ul>
-        <br />		
-       	<table id="lista_rendiciones" width="100%">
-		</table>
+			<li><a href="#nueva_rendicion">Nueva Rendición</a></li>
+		</ul>		
+		<p id="lista_rendiciones"></p>
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
 	</div>
 </div>
 
 <div data-role="page" id="nueva_rendicion">
 	<div data-role="header">
-		<h1><a href="#page" style="color:#FFF;"> << Inicio</a> - Nueva Rendición</h1>
+		<h1>Nueva Rendición</h1>
 	</div>
 	<div data-role="content">
 	  <div data-role="fieldcontain">
-      <form method="POST" name="nueva_rendicion_form" id="nueva_rendicion_form">
+      <form method="POST" name="nueva_rendicion" id="nueva_rendicion">
 	    <label for="fecha_rendicion">Fecha:</label>
 		<input type="date" name="fecha_rendicion" id="fecha_rendicion" value="" required />	
 	    <label for="saldo_anterior">Saldo anterior:</label>
-	    <input type="number" name="saldo_anterior" id="saldo_anterior" value="" requited />
+	    <input type="number" name="saldo_anterior" id="saldo_anterior" value="" requited />      
 	    <label for="monto_asignado">Monto asignado:</label>
 	    <input type="number" name="monto_asignado" id="monto_asignado" value="" required />      
-	    <label for="saldo_anterior_combustible">Saldo anterior combustible:</label>
-	    <input type="number" name="saldo_anterior_combustible" id="saldo_anterior_combustible" value="" requited />      
 	    <label for="combustible_asignado">Combustible asignado:</label>
 	    <input type="number" name="combustible_asignado" id="combustible_asignado" value="" required />      
 		<input type="submit" data-role="button" id="guardar" value="Guardar">
       </form>
       </div>    
-      <p id="resultBlock"></p>      
+      <p id="resultBlock"></p>
     </div>
-</div>
-
-<div data-role="page" id="itemspage">
-	<div data-role="header">
-		<h1><a href="#page" style="color:#FFF;"> << Inicio</a> - Items</h1>
-	</div>
-	<div data-role="content">
-	    <table width="100%">
-		    <tr>
-    			<td>
-					<a href="#nuevo_item" data-role="button" data-icon="plus" onclick="sessionStorage.id_item=''">Nuevo Item</a>
-				</td>
-                <td>
-					<a href="#nueva_rendicion" data-role="button" data-icon="gear">Editar</a>
-				</td>
-			</tr>
-		</table>
-        <br />		
-       	<table id="lista_items" width="100%" style="font-size:12px">
-		</table>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
 	</div>
 </div>
 
 <div data-role="page" id="nuevo_item">
 	<div data-role="header">
-		<h1><a href="#itemspage" style="color:#FFF;"> << Items</a> - Nuevo Item</h1>
+		<h1>Nuevo item</h1>
 	</div>
-	<div data-role="content">
+	<div data-role="content">	
       <div data-role="fieldcontain">
-        <form method="POST" name="nuevo_item_form" id="nuevo_item_form">
-          <label for="fecha_item">Fecha:</label>
-          <input type="date" name="fecha_item" id="fecha_item" value="" required />	
-          <label for="numero_documento">N&uacute;mero documento:</label>
-          <input type="text" name="numero_documento" id="numero_documento" value="" requited />      
-          <label for="descripcion">Descripci&oacute;n:</label>
-          <input type="text" name="descripcion" id="descripcion" value="" required />      
-          <label for="items" class="select">Item:</label>
-          <select name="items" id="items">
-            <option value="0">Seleccione una opcion</option>
-            <option value="1">Servicios terceros</option>
-            <option value="2">Traslados</option>
-            <option value="3">Combustible</option>
-            <option value="4">Materiales de oficina</option>
-            <option value="5">Consumo</option>
-            <option value="6">Alojamientos</option>
-            <option value="7">Gastos varios</option>
-          </select>
-          <label for="monto">Monto:</label>
-          <input type="number" name="monto" id="monto" value="" required />
-          <a href="#" data-role="button" onclick="capturePhoto();">Boleta/Factura</a>
-          <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-		  <input type="submit" data-role="button" id="guardar" value="Guardar">
-        </form>
+        <label for="items" class="select">Item:</label>
+        <select name="items" id="items">
+          <option value="1">Servicios terceros</option>
+          <option value="2">Traslados</option>
+          <option value="3">Combustible</option>
+          <option value="4">Materiales de oficina</option>
+          <option value="5">Consumo</option>
+          <option value="6">Alojamientos</option>
+          <option value="7">Gastos varios</option>
+        </select>
       </div>
-      <p id="resultBlock2"></p>
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
 	</div>
 </div>
-
 
 </body>
 </html>
