@@ -1,4 +1,6 @@
 
+jQuery.noConflict();
+
 var tipoitmes = [];
 tipoitmes[1]="Servicios terceros";
 tipoitmes[2]="Traslados";
